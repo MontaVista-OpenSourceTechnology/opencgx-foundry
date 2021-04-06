@@ -45,6 +45,7 @@ LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-security.git;branc
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cgl.git;branch=dunfell;layer=meta-cgl-common \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=dunfell \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=dunfell;layer=meta-openstack \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-updater.git;branch=dunfell \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgl;branch=dunfell \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-x86-generic;branch=dunfell \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-framework \

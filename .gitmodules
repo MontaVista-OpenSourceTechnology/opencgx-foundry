@@ -46,3 +46,7 @@
 	path = layers/meta-montavista-x86-generic
 	url = https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-x86-generic.git
 	branch = dunfell
+[submodule "layers/meta-updater"]
+	path = layers/meta-updater
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-updater
+	branch = dunfell
