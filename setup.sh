@@ -25,9 +25,8 @@ else
 fi
 
 REPO_CONFIG="\
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=dunfell;layer=meta-lmp-base \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-poky \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-yocto-bsp \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-oe \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-python \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-filesystems \
@@ -50,6 +49,20 @@ LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgl;bra
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-x86-generic;branch=dunfell \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-framework \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-testsuites \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm-toolchain \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm-bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale;branch=dunfell \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale-3rdparty;branch=dunfell \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-raspberrypi;branch=dunfell \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-riscv;branch=dunfell \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-rtlwifi;branch=dunfell \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-intel;branch=dunfell \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-yocto-bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx.git;branch=dunfell;layer=meta-xilinx-bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-silinx-tools;branch=dunfell \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=dunfell;layer=meta-lmp-bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta \
 MACHINE@x86-generic-64 \
 DISTRO@mvista-cgx \
 "
