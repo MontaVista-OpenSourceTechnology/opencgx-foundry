@@ -50,3 +50,39 @@
 	path = layers/meta-updater
 	url = https://github.com/MontaVista-OpenSourceTechnology/meta-updater
 	branch = dunfell
+[submodule "layers/meta-arm"]
+	path = layers/meta-arm
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-arm
+	branch = dunfell
+[submodule "layers/meta-freescale"]
+	path = layers/meta-freescale
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-freescale
+	branch = dunfell
+[submodule "layers/meta-freescale-3rdparty"]
+	path = layers/meta-freescale-3rdparty
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-freescale-3rdparty
+	branch = dunfell
+[submodule "layers/meta-raspberrypi"]
+	path = layers/meta-raspberrypi
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-raspberrypi
+	branch = dunfell
+[submodule "layers/meta-rtlwifi"]
+	path = layers/meta-rtlwifi
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-rtlwifi
+	branch = dunfell
+[submodule "layers/meta-intel"]
+	path = layers/meta-intel
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-intel
+	branch = dunfell
+[submodule "layers/meta-xilinx"]
+	path = layers/meta-xilinx
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx
+	branch = dunfell
+[submodule "layers/meta-xilinx-tools"]
+	path = layers/meta-xilinx-tools
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx-tools
+	branch = dunfell
+[submodule "layers/meta-lmp"]
+	path = layers/meta-lmp
+	url = https://github.com/foundriesio/meta-lmp
+	branch = dunfell
