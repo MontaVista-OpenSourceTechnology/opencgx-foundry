@@ -86,3 +86,7 @@
 	path = layers/meta-lmp
 	url = https://github.com/foundriesio/meta-lmp
 	branch = dunfell
+[submodule "layers/meta-riscv"]
+	path = layers/meta-riscv
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-riscv
+	branch = dunfell

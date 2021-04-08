@@ -24,46 +24,48 @@ else
 	buildDir=$1
 fi
 
+mkdir -p $buildDir
+buildDir=$(readlink -f $buildDir)
+
 REPO_CONFIG="\
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=dunfell;layer=meta-lmp-base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-poky \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-oe \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-python \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-filesystems \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-networking \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-webserver \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-clang.git;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-selinux.git;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-virtualization.git;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgx.git;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-perl \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-gnome \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-multimedia \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-xfce \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-security.git;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cgl.git;branch=dunfell;layer=meta-cgl-common \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=dunfell;layer=meta-openstack \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-updater.git;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgl;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-x86-generic;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-framework \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-testsuites \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm-toolchain \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm-bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale-3rdparty;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-raspberrypi;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-riscv;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-rtlwifi;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-intel;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-yocto-bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx.git;branch=dunfell;layer=meta-xilinx-bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-silinx-tools;branch=dunfell \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=dunfell;layer=meta-lmp-bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-poky;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-oe;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-python;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-filesystems;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-networking;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-webserver;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-clang.git;branch=dunfell;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-selinux.git;branch=dunfell;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-virtualization.git;branch=dunfell;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgx.git;branch=dunfell;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-perl;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-gnome;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-multimedia;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-xfce;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-security.git;branch=dunfell;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cgl.git;branch=dunfell;layer=meta-cgl-common;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=dunfell;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=dunfell;layer=meta-openstack;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-updater.git;branch=dunfell;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgl;branch=dunfell;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-framework;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-testsuites;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm-toolchain;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm-bsp;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale;branch=dunfell;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale-3rdparty;branch=dunfell;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-raspberrypi;branch=dunfell;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-riscv;branch=dunfell;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-rtlwifi;branch=dunfell;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-intel;branch=dunfell;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-yocto-bsp;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx.git;branch=dunfell;layer=meta-xilinx-bsp;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx-tools;branch=dunfell;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=dunfell;layer=meta-lmp-bsp;file=bsp \
 LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta \
-MACHINE@x86-generic-64 \
+MACHINE@raspberrypi4-64 \
 DISTRO@mvista-cgx \
 "
 
@@ -71,7 +73,7 @@ BUILD_TOOLS_LOCATION=https://github.com/MontaVista-OpenSourceTechnology/buildtoo
 buildtar=x86_64-buildtools-extended-nativesdk-standalone-3.1.0.sh
 TOPDIR=$(dirname $THIS_SCRIPT)
 URL=""
-
+CONFIGFILES=""
 for config in $REPO_CONFIG; do
     VAR=$(echo $config | cut -d @ -f 1)
     VAL=$(echo $config | cut -d @ -f 2)
@@ -79,6 +81,16 @@ for config in $REPO_CONFIG; do
        URL=$VAL
        URLBASE=$(echo $URL | cut -d / -f 1-3)
        HOST=$(echo $URL | cut -d / -f 3)
+    fi
+    if [ "$VAR" = "LAYER" ] ; then
+       options=$(echo $VAL | cut -d \; -f 2-)
+       for option in $(echo $options | sed s,\;,\ ,g); do
+           OVAR=$(echo $option | cut -d = -f 1)
+           OVAL=$(echo $option | cut -d = -f 2)
+           if [ "$OVAR" == "file" ] ; then
+              CONFIGFILES="$CONFIGFILES $OVAL"
+           fi
+       done
     fi
 done
 
@@ -92,7 +104,7 @@ if [ ! -e $TOPDIR/.drop ] ; then
       pushd $TOPDIR 2>/dev/null 1>/dev/null
          git config pull.rebase True
          git submodule init || $EXIT 1
-         git submodule update --remote || $EXIT 1
+#         git submodule update --remote || $EXIT 1
       popd  2>/dev/null 1>/dev/null
    else
       pushd $TOPDIR 2>/dev/null >/dev/null
@@ -105,18 +117,26 @@ export buildtar
 $TOPDIR/bin/fetch-buildtools || $EXIT 1
 
 if [ -z "$TEMPLATECONF" -o ! -d "$TEMPLATECONF" ] ; then
-    export TEMPLATECONF=$TOPDIR/layers/meta-montavista-cgx/conf
+    export TEMPLATECONF=$TOPDIR/.templates
 fi
 
 source $TOPDIR/buildtools/environment-setup-*
 if [ "$?" != "0" ] ; then
    $EXIT 1
 fi
-
+mkdir -p $buildDir/conf
+CONFIGFILES=$(for file in $CONFIGFILES; do echo $file; done | sort -u)
+for configfile in $CONFIGFILES; do
+    conf=$configfile
+    export CVAR=${conf^^}LAYERS
+    export ${CVAR}="" 
+    echo "$CVAR=\"\"" > $buildDir/conf/bblayers-$conf.inc
+done
 source $TOPDIR/layers/poky/oe-init-build-env $buildDir 
 if [ "$?" != "0" ] ; then
    $EXIT 1
 fi
+
 export BB_NO_NETWORK="1"
 export LAYERS_RELATIVE="1"
 if [ -z "$LOCAL_SOURCES" ] ; then
@@ -127,7 +147,8 @@ if [ -e $TOPDIR/.drop -o "$MAKEDROP" = "1" ] ; then
 fi
 echo "# Do not modify, automatically generated" > conf/local-content.conf
 echo >> conf/local-content.conf
-
+LAYERADD=""
+LAYERTOUCH=""
 for config in $REPO_CONFIG; do
     VAR=$(echo $config | cut -d @ -f 1)
     VAL=$(echo $config | cut -d @ -f 2)
@@ -136,17 +157,29 @@ for config in $REPO_CONFIG; do
        layerDir=$(basename $layer | sed s,.git,,)
        options=$(echo $VAL | cut -d \; -f 2-)
        sublayer=""
+       conf=""
        for option in $(echo $options | sed s,\;,\ ,g); do
-           if [ "$(echo $option | cut -d = -f 1)" = "layer" ] ; then
-                sublayer=$(echo $option | cut -d = -f 2)
+           OVAR=$(echo $option | cut -d = -f 1)
+           OVAL=$(echo $option | cut -d = -f 2)
+           if [ "$OVAR" = "layer" ] ; then
+                sublayer=$OVAL
+           fi
+           if [ "$OVAR" = "file" ] ; then
+                conf=$OVAL
            fi
        done
        if [ "$MAKEDROP" != "1" ] ; then
           mkdir -p $buildDir/.layers
           if [ ! -e $buildDir/.layers/$layerDir-$sublayer ] ; then
              echo "adding $layerDir/$sublayer"
-             bitbake-layers -F add-layer $TOPDIR/layers/$layerDir/$sublayer >/dev/null || $EXIT 1
-             touch $buildDir/.layers/$layerDir-$sublayer
+             LAYERTOUCH="$LAYERTOUCH $buildDir/.layers/$layerDir-$sublayer"
+             if [ -z "$conf" ] ; then
+                LAYERADD="$LAYERADD $TOPDIR/layers/$layerDir/$sublayer"
+             else
+                export CVAR="${conf^^}FILES"
+                echo ${!CVAR}
+                export ${CVAR}="${!CVAR} $TOPDIR/layers/$layerDir/$sublayer"
+             fi
           fi
        fi
     fi
@@ -200,6 +233,22 @@ for config in $REPO_CONFIG; do
           echo >> conf/local-content.conf
     fi
 done
+
+for config in $CONFIGFILES; do 
+    export CVAR="${config^^}"
+    export CFILES="${CVAR}FILES"
+    export FILES="${!CFILES}"
+    echo bblayers-$config.inc
+    echo "${CVAR}LAYERS= ' \\" > conf/bblayers-$config.inc
+    for layer in ${FILES}; do
+        echo "  $layer \\" >> conf/bblayers-$config.inc
+    done 
+    echo "'" >> conf/bblayers-$config.inc
+done
+
+if [ -n "$LAYERTOUCH" ] ; then
+   touch $LAYERTOUCH
+fi
 if [ -n "$SOURCE_MIRROR_URL" ] ; then
    if [ -z "$(echo $SOURCE_MIRROR_URL | grep "://")" ] ; then
       # Assume file
@@ -229,8 +278,10 @@ export -n BB_NO_NETWORK
 if [ "$MAKEDROP" != "1" ] ; then
    # Temporary waiting for proper bitbake integration: https://patchwork.openembedded.org/patch/144806/
    RELPATH=$(python -c "from os.path import relpath; print (relpath(\"$TOPDIR/layers\",\"$(pwd)\"))")
-   sed -i conf/bblayers.conf -e "s,$TOPDIR/layers/,\${TOPDIR}/$RELPATH/,"
-   
+   for conf in conf/bblayers*; do
+       sed -i $conf -e "s,poky/\.\.,,"
+       sed -i $conf -e "s,$TOPDIR/layers/,\${TOPDIR}/$RELPATH/,"
+   done
    if [ "$(readlink -f setup.sh)" = "$(readlink -f $TOPDIR/setup.sh)" ] ; then
       echo "Something went wrong. Exiting to prevent overwritting setup.sh"
       $EXIT 1
