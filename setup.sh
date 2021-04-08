@@ -104,7 +104,7 @@ if [ ! -e $TOPDIR/.drop ] ; then
       pushd $TOPDIR 2>/dev/null 1>/dev/null
          git config pull.rebase True
          git submodule init || $EXIT 1
-#         git submodule update --remote || $EXIT 1
+         git submodule update --remote || $EXIT 1
       popd  2>/dev/null 1>/dev/null
    else
       pushd $TOPDIR 2>/dev/null >/dev/null
