@@ -131,6 +131,8 @@ for configfile in $CONFIGFILES; do
     export CVAR=${conf^^}LAYERS
     export ${CVAR}="" 
     echo "$CVAR=\"\"" > $buildDir/conf/bblayers-$conf.inc
+    export CVAR="${conf^^}FILES"
+    export ${CVAR}=""
 done
 source $TOPDIR/layers/poky/oe-init-build-env $buildDir 
 if [ "$?" != "0" ] ; then
@@ -177,7 +179,6 @@ for config in $REPO_CONFIG; do
                 LAYERADD="$LAYERADD $TOPDIR/layers/$layerDir/$sublayer"
              else
                 export CVAR="${conf^^}FILES"
-                echo ${!CVAR}
                 export ${CVAR}="${!CVAR} $TOPDIR/layers/$layerDir/$sublayer"
              fi
           fi
@@ -233,7 +234,7 @@ for config in $REPO_CONFIG; do
           echo >> conf/local-content.conf
     fi
 done
-
+FILES=""
 for config in $CONFIGFILES; do 
     export CVAR="${config^^}"
     export CFILES="${CVAR}FILES"
