@@ -16,7 +16,7 @@
 	branch = dunfell 
 [submodule "layers/meta-montavista-cgx"]
 	path = layers/meta-montavista-cgx
-	url = gitcgx.mvista.com:/mvista/git/cgx/CGX3.1/wip/meta-montavista-cgx.git 
+	url = https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgx.git 
 	branch = dunfell
 [submodule "layers/meta-selinux"]
 	path = layers/meta-selinux
