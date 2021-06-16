@@ -6,8 +6,8 @@ How to use:
 ==========
 
 ```
-git clone -b next --recursive https://github.com/MontaVista-OpenSourceTechnology/opencgx-x86-generic-64
-cd opencgx-x86-generic-64
+git clone -b next --recursive https://github.com/MontaVista-OpenSourceTechnology/opencgx-foundry
+cd opencgx-foundry
 source setup.sh
 ```
 
@@ -33,7 +33,6 @@ or
 cd <my directory>
 source setup.sh
 bitbake core-image-minimal
-runqemu x86-generic-64 nographic slirp
 ```
 
 For additional information see the yocto documentaion: https://www.yoctoproject.org/docs/
@@ -41,7 +40,7 @@ For additional information see the yocto documentaion: https://www.yoctoproject.
 directory layout:
 ================
 ```
-opencgx-x86-generic-64/
+opencgx-foundry/
        project - bitbake project for the x86-generic-64 project build
        buildtools - build tools to provide minimal build requirement for poky builds
        layers - layers for building x86-generic-64 project
