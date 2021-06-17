@@ -28,43 +28,44 @@ mkdir -p $buildDir
 buildDir=$(readlink -f $buildDir)
 
 REPO_CONFIG="\
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=dunfell;layer=meta-lmp-base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-poky;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-oe;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-python;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-filesystems;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-networking;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-webserver;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-clang.git;branch=dunfell;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-selinux.git;branch=dunfell;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-virtualization.git;branch=dunfell;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgx.git;branch=dunfell;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-perl;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-gnome;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-multimedia;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=dunfell;layer=meta-xfce;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-security.git;branch=dunfell;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cgl.git;branch=dunfell;layer=meta-cgl-common;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=dunfell;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=dunfell;layer=meta-openstack;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-updater.git;branch=dunfell;file=base \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgl;branch=dunfell;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-framework;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=dunfell;layer=meta-qa-testsuites;file=cgx \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm-toolchain;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=dunfell;layer=meta-arm-bsp;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale;branch=dunfell;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale-3rdparty;branch=dunfell;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-raspberrypi;branch=dunfell;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-riscv;branch=dunfell;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-rtlwifi;branch=dunfell;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-intel;branch=dunfell;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta-yocto-bsp;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx.git;branch=dunfell;layer=meta-xilinx-bsp;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx-tools;branch=dunfell;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=dunfell;layer=meta-lmp-bsp;file=bsp \
-LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=dunfell;layer=meta \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=gatesgarth;layer=meta-lmp-base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=gatesgarth;layer=meta-poky;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-oe;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-python;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-filesystems;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-networking;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-webserver;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-clang.git;branch=gatesgarth;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-selinux.git;branch=gatesgarth;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-virtualization.git;branch=gatesgarth;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgx.git;branch=gatesgarth;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-perl;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-gnome;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-multimedia;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-openembedded.git;branch=gatesgarth;layer=meta-xfce;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-security.git;branch=gatesgarth;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cgl.git;branch=gatesgarth;layer=meta-cgl-common;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=gatesgarth;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-cloud-services.git;branch=gatesgarth;layer=meta-openstack;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-updater.git;branch=gatesgarth;file=base \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-montavista-cgl;branch=gatesgarth;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=gatesgarth;layer=meta-qa-framework;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-qa.git;branch=gatesgarth;layer=meta-qa-testsuites;file=cgx \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=gatesgarth;layer=meta-arm;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=gatesgarth;layer=meta-arm-toolchain;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-arm.git;branch=gatesgarth;layer=meta-arm-bsp;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale;branch=gatesgarth;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-freescale-3rdparty;branch=gatesgarth;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-raspberrypi;branch=gatesgarth;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-riscv;branch=gatesgarth;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-rtlwifi;branch=gatesgarth;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-intel;branch=gatesgarth;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=gatesgarth;layer=meta-yocto-bsp;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx.git;branch=gatesgarth;layer=meta-xilinx-bsp;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx.git;branch=gatesgarth;layer=meta-xilinx-standalone;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-xilinx-tools;branch=gatesgarth;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/meta-lmp.git;branch=gatesgarth;layer=meta-lmp-bsp;file=bsp \
+LAYER@https://github.com/MontaVista-OpenSourceTechnology/poky.git;branch=gatesgarth;layer=meta \
 MACHINE@raspberrypi4-64 \
 DISTRO@mvista-cgx \
 "
@@ -194,7 +195,7 @@ for config in $REPO_CONFIG; do
     fi
     if [ "$VAR" = "SOURCE" ] ; then
           META=""
-          BRANCH="dunfell"
+          BRANCH="gatesgarth"
           TREE=$(echo $VAL | cut -d \; -f 1)
           for option in $(echo $VAL | sed s,\;,\ ,g); do
               OVAR=$(echo $option | cut -d = -f 1) 
@@ -216,7 +217,7 @@ for config in $REPO_CONFIG; do
               popd 2>/dev/null >/dev/null
               
               if [ ! -e $LSOURCE_EXPORT ] ; then
-                 if [ "$BRANCH" = "dunfell" ] ; then
+                 if [ "$BRANCH" = "gatesgarth" ] ; then
                     git clone --bare $LSOURCE $LSOURCE_EXPORT
                  else
                     git clone -b $BRANCH --bare $LSOURCE $LSOURCE_EXPORT
